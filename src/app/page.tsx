@@ -145,7 +145,7 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1558904541-efa843a96f01?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+            src="/hero-background.png"
             alt="Beautiful landscaped property with mature trees"
             fill
             className="object-cover"
