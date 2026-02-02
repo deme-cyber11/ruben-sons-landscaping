@@ -141,20 +141,12 @@ export default function Home() {
       {/* ============================================
           SECTION 1: HERO
           ============================================ */}
-      <section className="relative min-h-screen flex items-center justify-center">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/hero-background.png"
-            alt="Beautiful landscaped property with mature trees"
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
-          {/* Overlay */}
-          <div className="absolute inset-0 hero-overlay" />
-        </div>
+      <section
+        className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: 'url(/ruben-sons-landscaping/hero-background.png)' }}
+      >
+        {/* Overlay */}
+        <div className="absolute inset-0 hero-overlay z-0" />
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
