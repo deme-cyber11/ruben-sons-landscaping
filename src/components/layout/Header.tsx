@@ -84,25 +84,13 @@ export default function Header() {
             >
               <svg
                 viewBox="0 0 24 24"
-                fill="none"
+                fill="currentColor"
                 className="w-6 h-6 text-white"
                 aria-hidden="true"
               >
-                <path
-                  d="M12 2L3 7v10l9 5 9-5V7l-9-5z"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M12 22V12M12 12L3 7M12 12l9-5"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <circle cx="12" cy="8" r="2" fill="currentColor" />
+                {/* Tree icon - solid */}
+                <path d="M12 2L7 9h3v3H7l5 7 5-7h-3V9h3L12 2z" />
+                <rect x="11" y="17" width="2" height="5" />
               </svg>
             </div>
             <div className="flex flex-col">
