@@ -63,7 +63,7 @@ export default function Header() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? 'bg-white shadow-lg py-2'
-          : 'bg-transparent py-4'
+          : 'bg-white/95 backdrop-blur-sm py-4'
       }`}
       role="banner"
     >
@@ -80,16 +80,12 @@ export default function Header() {
             aria-label="Ruben & Sons Landscaping - Home"
           >
             <div
-              className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300 ${
-                isScrolled ? 'bg-primary-green' : 'bg-white'
-              }`}
+              className="w-10 h-10 rounded-full flex items-center justify-center bg-primary-green"
             >
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
-                className={`w-6 h-6 transition-colors duration-300 ${
-                  isScrolled ? 'text-white' : 'text-primary-green'
-                }`}
+                className="w-6 h-6 text-white"
                 aria-hidden="true"
               >
                 <path
@@ -110,18 +106,10 @@ export default function Header() {
               </svg>
             </div>
             <div className="flex flex-col">
-              <span
-                className={`text-lg font-bold leading-tight transition-colors duration-300 ${
-                  isScrolled ? 'text-primary-green' : 'text-white'
-                }`}
-              >
+              <span className="text-lg font-bold leading-tight text-primary-green">
                 Ruben & Sons
               </span>
-              <span
-                className={`text-xs uppercase tracking-wider transition-colors duration-300 ${
-                  isScrolled ? 'text-charcoal/70' : 'text-white/80'
-                }`}
-              >
+              <span className="text-xs uppercase tracking-wider text-charcoal/70">
                 Landscaping
               </span>
             </div>
@@ -133,9 +121,7 @@ export default function Header() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className={`text-sm font-medium transition-colors duration-200 hover:text-cta-green relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-cta-green after:transition-all after:duration-200 hover:after:w-full ${
-                    isScrolled ? 'text-charcoal' : 'text-white'
-                  }`}
+                  className="text-sm font-medium text-charcoal transition-colors duration-200 hover:text-cta-green relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-cta-green after:transition-all after:duration-200 hover:after:w-full"
                 >
                   {item.label}
                 </Link>
@@ -147,9 +133,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-4">
             <a
               href={PHONE_HREF}
-              className={`flex items-center gap-2 text-sm font-semibold transition-colors duration-200 hover:text-cta-green ${
-                isScrolled ? 'text-charcoal' : 'text-white'
-              }`}
+              className="flex items-center gap-2 text-sm font-semibold text-charcoal transition-colors duration-200 hover:text-cta-green"
               aria-label={`Call us at ${PHONE_NUMBER}`}
             >
               <svg
@@ -180,11 +164,7 @@ export default function Header() {
           <button
             type="button"
             onClick={toggleMobileMenu}
-            className={`lg:hidden p-2 rounded-lg transition-colors duration-200 ${
-              isScrolled
-                ? 'text-charcoal hover:bg-charcoal/10'
-                : 'text-white hover:bg-white/10'
-            }`}
+            className="lg:hidden p-2 rounded-lg text-charcoal hover:bg-charcoal/10 transition-colors duration-200"
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-menu"
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
