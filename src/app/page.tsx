@@ -159,13 +159,12 @@ export default function Home() {
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in-up animation-delay-100">
             Dangerous Tree?
             <br />
-            <span className="text-cta-green">We Handle It Today.</span>
+            <span className="text-cta-green">Gone Today.</span>
           </h1>
-          <p className="text-xl sm:text-2xl text-white/90 mb-4 max-w-3xl mx-auto animate-fade-in-up animation-delay-200">
-            DMV&apos;s trusted tree service for 15+ years. Licensed, insured, and ready 24/7.
-          </p>
-          <p className="text-lg text-white/70 mb-10 max-w-2xl mx-auto animate-fade-in-up animation-delay-200">
-            From emergency removals to complete landscape transformations — get your free estimate in 24 hours.
+          <p className="text-xl sm:text-2xl text-white/90 mb-8 max-w-2xl mx-auto animate-fade-in-up animation-delay-200">
+            15+ years serving DC, Maryland & Virginia.
+            <br className="hidden sm:block" />
+            Licensed. Insured. Available 24/7.
           </p>
 
           {/* CTA Buttons */}
