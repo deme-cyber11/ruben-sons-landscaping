@@ -1,0 +1,11 @@
+# Robots.txt for Ruben & Sons Landscaping
+# https://deme-cyber11.github.io/ruben-sons-landscaping/
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://deme-cyber11.github.io/ruben-sons-landscaping/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
