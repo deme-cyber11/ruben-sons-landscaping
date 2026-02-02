@@ -38,16 +38,25 @@ export const metadata: Metadata = {
     title: "Ruben & Sons Landscaping | Premium Tree & Landscaping Services DMV",
     description:
       "Professional tree care, landscaping, and land clearing services in Washington DC, Maryland, and Virginia. 24/7 emergency service available.",
-    url: "https://rubenandsonslandscaping.com",
+    url: "https://deme-cyber11.github.io/ruben-sons-landscaping",
     siteName: "Ruben & Sons Landscaping",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "https://deme-cyber11.github.io/ruben-sons-landscaping/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Ruben & Sons Landscaping - Premium Tree & Landscaping Services",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Ruben & Sons Landscaping | Premium Tree & Landscaping Services DMV",
     description:
       "Professional tree care, landscaping, and land clearing services in Washington DC, Maryland, and Virginia.",
+    images: ["https://deme-cyber11.github.io/ruben-sons-landscaping/og-image.png"],
   },
   robots: {
     index: true,
