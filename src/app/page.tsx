@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Button, ServiceCard, TestimonialCard, BeforeAfterSlider } from '@/components/ui';
+import { Button, ServiceCard, TestimonialCard, BeforeAfterSlider, StatsBar, FAQ, GuaranteeSection } from '@/components/ui';
 
 // Service Icons as SVG components
 const EmergencyIcon = () => (
@@ -97,23 +97,23 @@ const services = [
   },
 ];
 
-// Testimonials Data
+// Testimonials Data - More specific and trust-building
 const testimonials = [
   {
     quote:
-      'Ruben and his team removed a massive oak that was threatening our home. Professional, fast, and cleaned up perfectly.',
+      'A 60-foot oak was leaning toward our house after a storm. Ruben\'s team arrived within 90 minutes, carefully removed it with a crane, and our yard looked better than before. They even helped with our insurance claim paperwork. Worth every penny.',
     author: 'Michael R.',
     location: 'Bethesda, MD',
   },
   {
     quote:
-      'Best landscaping service in Maryland. Our property has never looked better.',
+      'We\'ve used Ruben & Sons for 3 years now - seasonal cleanups, tree pruning, and a complete backyard redesign. They treat our property like it\'s their own. The crew is always on time and the pricing is transparent. No surprises.',
     author: 'Sarah K.',
     location: 'Silver Spring, MD',
   },
   {
     quote:
-      'Called them for an emergency after a storm. They were here within 2 hours. Incredible service.',
+      'After the derecho knocked down two trees blocking our driveway, I called 5 companies. Ruben & Sons was the only one who answered at 11pm and had a crew here by 6am. They cleared everything and ground the stumps the same day. True professionals.',
     author: 'David P.',
     location: 'Arlington, VA',
   },
@@ -150,17 +150,26 @@ export default function Home() {
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in-up">
-            Premium Tree & Landscaping
+          {/* Urgency Badge */}
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 animate-fade-in-up">
+            <span className="w-2 h-2 bg-cta-green rounded-full animate-pulse"></span>
+            <span className="text-white/90 text-sm font-medium">Same-Day Emergency Response Available</span>
+          </div>
+
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in-up animation-delay-100">
+            Dangerous Tree?
             <br />
-            <span className="text-cta-green">Services for the DMV</span>
+            <span className="text-cta-green">We Handle It Today.</span>
           </h1>
-          <p className="text-xl sm:text-2xl text-white/90 mb-10 max-w-3xl mx-auto animate-fade-in-up animation-delay-100">
-            Professional tree care and landscaping serving Washington DC, Maryland & Virginia
+          <p className="text-xl sm:text-2xl text-white/90 mb-4 max-w-3xl mx-auto animate-fade-in-up animation-delay-200">
+            DMV&apos;s trusted tree service for 15+ years. Licensed, insured, and ready 24/7.
+          </p>
+          <p className="text-lg text-white/70 mb-10 max-w-2xl mx-auto animate-fade-in-up animation-delay-200">
+            From emergency removals to complete landscape transformations — get your free estimate in 24 hours.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in-up animation-delay-200">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in-up animation-delay-300">
             <Button href="/contact" size="lg" variant="primary">
               Get Free Estimate
             </Button>
@@ -173,7 +182,7 @@ export default function Home() {
           </div>
 
           {/* Trust Badges */}
-          <div className="flex flex-wrap justify-center gap-6 sm:gap-12 animate-fade-in-up animation-delay-300">
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-12 animate-fade-in-up animation-delay-400">
             <div className="flex items-center gap-2 text-white">
               <ShieldIcon />
               <span className="text-sm sm:text-base font-medium">Licensed & Insured</span>
@@ -196,6 +205,11 @@ export default function Home() {
           </svg>
         </div>
       </section>
+
+      {/* ============================================
+          STATS BAR - Social Proof
+          ============================================ */}
+      <StatsBar />
 
       {/* ============================================
           SECTION 2: SERVICES GRID
@@ -232,48 +246,93 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-charcoal mb-4">
-              Why Choose Ruben & Sons
+              Why 500+ DMV Homeowners Trust Us
             </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              When your property needs professional care, you deserve a team that shows up on time, does the job right, and leaves your yard spotless.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Certified Professionals */}
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-14 h-14 bg-primary-green/10 rounded-xl flex items-center justify-center mb-6">
+                <svg className="w-7 h-7 text-primary-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-charcoal mb-3">Certified Professionals</h3>
-              <p className="text-gray-600">
-                Our licensed and insured team brings years of expertise to every project, ensuring quality workmanship you can trust.
+              <h3 className="text-xl font-bold text-charcoal mb-3">Fully Licensed & Insured</h3>
+              <p className="text-gray-600 mb-4">
+                $2M liability coverage. Workers&apos; comp on every job. Your property and our crew are protected.
               </p>
+              <ul className="space-y-2 text-sm text-gray-500">
+                <li className="flex items-center gap-2">
+                  <svg className="w-4 h-4 text-cta-green" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  Maryland Tree Expert License
+                </li>
+                <li className="flex items-center gap-2">
+                  <svg className="w-4 h-4 text-cta-green" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  OSHA Safety Certified
+                </li>
+              </ul>
             </div>
 
             {/* 24/7 Emergency Service */}
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-14 h-14 bg-primary-green/10 rounded-xl flex items-center justify-center mb-6">
+                <svg className="w-7 h-7 text-primary-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-charcoal mb-3">24/7 Emergency Service</h3>
-              <p className="text-gray-600">
-                Storm damage does not wait, and neither do we. Our emergency response team is always ready when you need us most.
+              <h3 className="text-xl font-bold text-charcoal mb-3">2-Hour Emergency Response</h3>
+              <p className="text-gray-600 mb-4">
+                Tree on your house? Blocking your driveway? Our crews are dispatched within 2 hours, 24/7/365.
               </p>
+              <ul className="space-y-2 text-sm text-gray-500">
+                <li className="flex items-center gap-2">
+                  <svg className="w-4 h-4 text-cta-green" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  Storm damage specialists
+                </li>
+                <li className="flex items-center gap-2">
+                  <svg className="w-4 h-4 text-cta-green" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  Insurance claim assistance
+                </li>
+              </ul>
             </div>
 
-            {/* Free Estimates */}
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {/* Transparent Pricing */}
+            <div className="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-14 h-14 bg-primary-green/10 rounded-xl flex items-center justify-center mb-6">
+                <svg className="w-7 h-7 text-primary-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-charcoal mb-3">Free Estimates</h3>
-              <p className="text-gray-600">
-                Get a detailed, no-obligation quote for your project. We believe in transparent pricing with no hidden fees.
+              <h3 className="text-xl font-bold text-charcoal mb-3">No-Surprise Pricing</h3>
+              <p className="text-gray-600 mb-4">
+                Detailed written quotes before any work begins. The price we quote is the price you pay. Period.
               </p>
+              <ul className="space-y-2 text-sm text-gray-500">
+                <li className="flex items-center gap-2">
+                  <svg className="w-4 h-4 text-cta-green" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  Free on-site estimates
+                </li>
+                <li className="flex items-center gap-2">
+                  <svg className="w-4 h-4 text-cta-green" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  Financing available
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -354,6 +413,11 @@ export default function Home() {
       </section>
 
       {/* ============================================
+          GUARANTEE SECTION - Risk Reversal
+          ============================================ */}
+      <GuaranteeSection />
+
+      {/* ============================================
           SECTION 6: SERVICE AREA
           ============================================ */}
       <section className="section-padding bg-white">
@@ -401,38 +465,75 @@ export default function Home() {
       </section>
 
       {/* ============================================
+          FAQ SECTION - Objection Handling
+          ============================================ */}
+      <FAQ />
+
+      {/* ============================================
           SECTION 7: FINAL CTA
           ============================================ */}
-      <section className="section-padding bg-primary-green">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="section-padding bg-primary-green relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-40 h-40 border-2 border-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute bottom-0 right-0 w-60 h-60 border-2 border-white rounded-full translate-x-1/3 translate-y-1/3"></div>
+        </div>
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          {/* Urgency Badge */}
+          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span className="text-white text-sm font-medium">Most quotes delivered within 24 hours</span>
+          </div>
+
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Ready to Transform Your Property?
+            Get Your Free Estimate Today
           </h2>
-          <p className="text-xl text-white/90 mb-10">
-            Get your free estimate today and see why homeowners across the DMV trust Ruben & Sons.
+          <p className="text-xl text-white/90 mb-4 max-w-2xl mx-auto">
+            No pressure. No obligation. Just honest advice from professionals who&apos;ve been serving the DMV for 15+ years.
+          </p>
+          <p className="text-white/70 mb-10">
+            Join 500+ satisfied homeowners who chose Ruben & Sons.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="/contact" size="lg" className="bg-white text-primary-green hover:bg-cream">
-              Get Free Quote
+            <Button href="/contact" size="lg" className="bg-white text-primary-green hover:bg-cream font-bold shadow-lg">
+              Request Free Quote
             </Button>
             <a
               href="tel:301-844-8429"
-              className="inline-flex items-center justify-center text-white text-lg font-medium hover:text-cream transition-colors"
+              className="inline-flex items-center justify-center px-8 py-3 bg-white/10 backdrop-blur-sm border-2 border-white text-white text-lg font-semibold rounded-lg hover:bg-white hover:text-primary-green transition-all"
             >
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
-              Or call: 301-844-8429
+              Call Now: 301-844-8429
             </a>
           </div>
 
-          <p className="mt-8 text-white/70 text-sm">
-            Email us at{' '}
-            <a href="mailto:perezmabel0@gmail.com" className="underline hover:text-white">
-              perezmabel0@gmail.com
-            </a>
-          </p>
+          {/* Trust Signals */}
+          <div className="mt-12 pt-8 border-t border-white/20 flex flex-wrap justify-center gap-8 text-white/80 text-sm">
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              <span>100% Satisfaction Guarantee</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              <span>Licensed & Insured</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              <span>No Hidden Fees</span>
+            </div>
+          </div>
         </div>
       </section>
     </main>

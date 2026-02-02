@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
-import { Header, Footer, MobileCallButton } from "@/components/layout";
+import { Header, Footer, MobileCallButton, StickyMobileCTA } from "@/components/layout";
+import { SeasonalBanner } from "@/components/ui";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -72,10 +73,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${playfair.variable} ${inter.variable} font-sans antialiased`}>
+        <SeasonalBanner />
         <Header />
         <main>{children}</main>
         <Footer />
         <MobileCallButton />
+        <StickyMobileCTA />
       </body>
     </html>
   );
