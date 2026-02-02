@@ -13,6 +13,8 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { label: 'Services', href: '/services' },
+  { label: 'Service Areas', href: '/locations/bethesda-md' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Gallery', href: '/gallery' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },

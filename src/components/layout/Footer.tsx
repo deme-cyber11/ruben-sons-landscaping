@@ -9,14 +9,18 @@ const serviceLinks = [
   { label: 'Maintenance', href: '/services/maintenance' },
 ]
 
-const serviceAreas = [
+const locationPages = [
+  { label: 'Bethesda, MD', href: '/locations/bethesda-md' },
+  { label: 'Silver Spring, MD', href: '/locations/silver-spring-md' },
+  { label: 'Rockville, MD', href: '/locations/rockville-md' },
+  { label: 'Arlington, VA', href: '/locations/arlington-va' },
+  { label: 'Fairfax, VA', href: '/locations/fairfax-va' },
+]
+
+const otherAreas = [
   'Washington DC',
-  'Montgomery County, MD',
-  'Prince George\'s County, MD',
-  'Frederick County, MD',
-  'Arlington, VA',
-  'Fairfax County, VA',
-  'Alexandria, VA',
+  'Montgomery County',
+  'Fairfax County',
 ]
 
 export default function Footer() {
@@ -74,7 +78,21 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-lg mb-4">Service Areas</h3>
             <ul className="space-y-2">
-              {serviceAreas.map((area) => (
+              {locationPages.map((location) => (
+                <li key={location.href}>
+                  <Link
+                    href={location.href}
+                    className="text-white/70 hover:text-cta-green transition-colors text-sm flex items-center gap-2"
+                  >
+                    <svg className="w-4 h-4 text-cta-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    {location.label}
+                  </Link>
+                </li>
+              ))}
+              {otherAreas.map((area) => (
                 <li key={area} className="text-white/70 text-sm flex items-center gap-2">
                   <svg className="w-4 h-4 text-cta-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />

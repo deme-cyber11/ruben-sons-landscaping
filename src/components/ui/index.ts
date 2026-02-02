@@ -7,3 +7,5 @@ export { default as StatsBar } from './StatsBar';
 export { default as FAQ } from './FAQ';
 export { default as GuaranteeSection } from './GuaranteeSection';
 export { default as SeasonalBanner } from './SeasonalBanner';
+export { CityPageTemplate } from './CityPageTemplate';
+export { BlogCard } from './BlogCard';

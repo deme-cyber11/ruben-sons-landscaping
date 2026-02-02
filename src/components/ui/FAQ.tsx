@@ -40,6 +40,20 @@ const faqs: FAQItem[] = [
   },
 ];
 
+// FAQ Schema for SEO
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
@@ -48,7 +62,12 @@ export default function FAQ() {
   };
 
   return (
-    <section className="section-padding bg-white">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <section className="section-padding bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-charcoal mb-4">
@@ -154,5 +173,6 @@ export default function FAQ() {
         </div>
       </div>
     </section>
+    </>
   );
 }

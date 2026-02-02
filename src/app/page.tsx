@@ -62,7 +62,7 @@ const services = [
   {
     title: 'Emergency Tree Removal',
     description: '24/7 response for storm damage and hazardous trees',
-    href: '/services/emergency-tree-removal',
+    href: '/services/tree-removal',
     icon: <EmergencyIcon />,
   },
   {
@@ -86,7 +86,7 @@ const services = [
   {
     title: 'Winter Preparation',
     description: 'Protect your landscape from freeze damage',
-    href: '/services/winter-preparation',
+    href: '/services/winterization',
     icon: <WinterIcon />,
   },
   {

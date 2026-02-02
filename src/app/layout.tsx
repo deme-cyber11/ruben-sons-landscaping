@@ -17,9 +17,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://deme-cyber11.github.io/ruben-sons-landscaping"),
   title: "Ruben & Sons Landscaping | Premium Tree & Landscaping Services DMV",
   description:
     "Professional tree care, landscaping, and land clearing services in Washington DC, Maryland, and Virginia. 24/7 emergency tree removal. Licensed & insured. Free estimates. Call 301-844-8429.",
+  alternates: {
+    canonical: "/",
+  },
   keywords: [
     "tree service",
     "tree removal",
@@ -65,6 +69,110 @@ export const metadata: Metadata = {
   },
 };
 
+// JSON-LD structured data for LocalBusiness
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://deme-cyber11.github.io/ruben-sons-landscaping/#business",
+  name: "Ruben & Sons Landscaping",
+  description: "Professional tree care, landscaping, and land clearing services in Washington DC, Maryland, and Virginia. 24/7 emergency tree removal. Licensed & insured.",
+  url: "https://deme-cyber11.github.io/ruben-sons-landscaping",
+  telephone: "+1-301-844-8429",
+  email: "perezmabel0@gmail.com",
+  image: "https://deme-cyber11.github.io/ruben-sons-landscaping/og-image.png",
+  logo: "https://deme-cyber11.github.io/ruben-sons-landscaping/og-image.png",
+  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Silver Spring",
+    addressRegion: "MD",
+    addressCountry: "US"
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 38.9907,
+    longitude: -77.0261
+  },
+  areaServed: [
+    { "@type": "City", name: "Washington", addressRegion: "DC" },
+    { "@type": "City", name: "Bethesda", addressRegion: "MD" },
+    { "@type": "City", name: "Silver Spring", addressRegion: "MD" },
+    { "@type": "City", name: "Rockville", addressRegion: "MD" },
+    { "@type": "City", name: "Gaithersburg", addressRegion: "MD" },
+    { "@type": "City", name: "Arlington", addressRegion: "VA" },
+    { "@type": "City", name: "Alexandria", addressRegion: "VA" },
+    { "@type": "City", name: "Fairfax", addressRegion: "VA" },
+    { "@type": "City", name: "McLean", addressRegion: "VA" },
+    { "@type": "City", name: "Falls Church", addressRegion: "VA" },
+    { "@type": "AdministrativeArea", name: "Montgomery County", addressRegion: "MD" },
+    { "@type": "AdministrativeArea", name: "Prince George's County", addressRegion: "MD" },
+    { "@type": "AdministrativeArea", name: "Fairfax County", addressRegion: "VA" }
+  ],
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "07:00",
+      closes: "19:00"
+    }
+  ],
+  sameAs: [],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Tree & Landscaping Services",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Emergency Tree Removal",
+          description: "24/7 emergency response for storm damage and hazardous trees"
+        }
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Tree Care & Pruning",
+          description: "Expert pruning, cabling, and health assessments"
+        }
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Land Clearing",
+          description: "Site preparation for development projects"
+        }
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Landscaping",
+          description: "Planting, mulching, and softscape design"
+        }
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Winterization",
+          description: "Protect your landscape from freeze damage"
+        }
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Maintenance Programs",
+          description: "Year-round care contracts"
+        }
+      }
+    ]
+  }
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -73,6 +181,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${playfair.variable} ${inter.variable} font-sans antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
         <SeasonalBanner />
         <Header />
         <main>{children}</main>
