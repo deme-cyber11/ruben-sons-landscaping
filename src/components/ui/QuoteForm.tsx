@@ -2,6 +2,9 @@
 
 import { useState, FormEvent } from 'react'
 
+// Web3Forms API Key - Get yours free at https://web3forms.com
+const WEB3FORMS_ACCESS_KEY = 'YOUR_ACCESS_KEY_HERE' // TODO: Replace with your actual key
+
 const services = [
   'Tree Removal',
   'Tree Care & Pruning',
@@ -57,13 +60,33 @@ export default function QuoteForm() {
 
     setStatus('loading')
 
-    // Simulate form submission
     try {
-      // In production, this would send to an API endpoint
-      console.log('Form submitted:', formData)
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      setStatus('success')
-      setFormData({ name: '', phone: '', email: '', service: '', message: '' })
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `New Quote Request: ${formData.service}`,
+          from_name: 'Ruben & Sons Website',
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          service: formData.service,
+          message: formData.message || 'No additional details provided',
+        })
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        setStatus('success')
+        setFormData({ name: '', phone: '', email: '', service: '', message: '' })
+      } else {
+        throw new Error('Form submission failed')
+      }
     } catch {
       setStatus('error')
     }
@@ -176,7 +199,7 @@ export default function QuoteForm() {
       {/* Error Message */}
       {status === 'error' && (
         <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
-          Something went wrong. Please try again or call us directly.
+          Something went wrong. Please try again or call us directly at (301) 844-8429.
         </div>
       )}
 

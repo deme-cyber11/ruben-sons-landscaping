@@ -3,22 +3,34 @@
 :root {
   /* Brand Colors */
   --primary-green: #2D5A27;
+  --primary-green-light: #3d7a34;
   --cta-green: #4CAF50;
+  --cta-green-dark: #3d9141;
   --charcoal: #2C2C2C;
   --cream: #F5F1EB;
+  --cream-dark: #EBE5DB;
 
   /* System */
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary-green: var(--primary-green);
+  --color-primary-green-light: var(--primary-green-light);
   --color-cta-green: var(--cta-green);
+  --color-cta-green-dark: var(--cta-green-dark);
   --color-charcoal: var(--charcoal);
   --color-cream: var(--cream);
+  --color-cream-dark: var(--cream-dark);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -59,16 +71,21 @@ html {
   background: var(--cta-green);
 }
 
-/* Hero gradient overlay */
+/* ============================================
+   HERO STYLES
+   ============================================ */
 .hero-overlay {
   background: linear-gradient(
-    to bottom,
-    rgba(45, 90, 39, 0.7) 0%,
-    rgba(44, 44, 44, 0.8) 100%
+    135deg,
+    rgba(45, 90, 39, 0.85) 0%,
+    rgba(44, 44, 44, 0.75) 50%,
+    rgba(45, 90, 39, 0.7) 100%
   );
 }
 
-/* Section padding utility */
+/* ============================================
+   SECTION STYLES
+   ============================================ */
 .section-padding {
   padding-top: 5rem;
   padding-bottom: 5rem;
@@ -81,13 +98,47 @@ html {
   }
 }
 
-/* Focus visible styles for accessibility */
-:focus-visible {
-  outline: 2px solid var(--cta-green);
-  outline-offset: 2px;
+/* ============================================
+   CARD STYLES
+   ============================================ */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Animation utilities */
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* ============================================
+   STATS BAR STYLES
+   ============================================ */
+.stats-bar {
+  background: linear-gradient(135deg, var(--charcoal) 0%, #1a1a1a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cta-green), transparent);
+}
+
+.stat-value {
+  background: linear-gradient(180deg, var(--cta-green) 0%, #3d9141 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   ANIMATION KEYFRAMES
+   ============================================ */
 @keyframes fade-in-up {
   from {
     opacity: 0;
@@ -99,11 +150,128 @@ html {
   }
 }
 
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 15px rgba(76, 175, 80, 0);
+  }
+}
+
+@keyframes count-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   ANIMATION UTILITIES
+   ============================================ */
 .animate-fade-in-up {
   animation: fade-in-up 0.6s ease-out forwards;
 }
 
-/* Stagger animation delays */
+.animate-fade-in-down {
+  animation: fade-in-down 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.4s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.5s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.5s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-count-up {
+  animation: count-up 0.8s ease-out forwards;
+}
+
+/* Animation delays */
 .animation-delay-100 {
   animation-delay: 100ms;
 }
@@ -122,4 +290,100 @@ html {
 
 .animation-delay-500 {
   animation-delay: 500ms;
+}
+
+.animation-delay-600 {
+  animation-delay: 600ms;
+}
+
+.animation-delay-700 {
+  animation-delay: 700ms;
+}
+
+.animation-delay-800 {
+  animation-delay: 800ms;
+}
+
+/* ============================================
+   HOVER EFFECTS
+   ============================================ */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 25px rgba(76, 175, 80, 0.2);
+}
+
+/* ============================================
+   TEXT EFFECTS
+   ============================================ */
+.text-gradient {
+  background: linear-gradient(135deg, var(--cta-green) 0%, var(--primary-green) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   DECORATIVE ELEMENTS
+   ============================================ */
+.decorative-line {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--cta-green) 0%, var(--primary-green) 100%);
+  border-radius: 2px;
+}
+
+/* ============================================
+   GLASSMORPHISM
+   ============================================ */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+   FOCUS & ACCESSIBILITY
+   ============================================ */
+:focus-visible {
+  outline: 2px solid var(--cta-green);
+  outline-offset: 2px;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

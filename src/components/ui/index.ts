@@ -7,5 +7,8 @@ export { default as StatsBar } from './StatsBar';
 export { default as FAQ } from './FAQ';
 export { default as GuaranteeSection } from './GuaranteeSection';
 export { default as SeasonalBanner } from './SeasonalBanner';
+export { default as FloatingContactFAB } from './FloatingContactFAB';
+export { default as TrustBadges } from './TrustBadges';
+export { default as PricingCalculator } from './PricingCalculator';
 export { CityPageTemplate } from './CityPageTemplate';
 export { BlogCard } from './BlogCard';

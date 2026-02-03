@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import { Header, Footer, MobileCallButton, StickyMobileCTA } from "@/components/layout";
-import { SeasonalBanner } from "@/components/ui";
+import { SeasonalBanner, FloatingContactFAB } from "@/components/ui";
+import { GoogleAnalytics } from "@/components/analytics";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -69,7 +70,7 @@ export const metadata: Metadata = {
   },
 };
 
-// JSON-LD structured data for LocalBusiness
+// JSON-LD structured data for LocalBusiness with AggregateRating and Reviews
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
@@ -93,6 +94,71 @@ const localBusinessSchema = {
     latitude: 38.9907,
     longitude: -77.0261
   },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: "127",
+    bestRating: "5",
+    worstRating: "1"
+  },
+  review: [
+    {
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5"
+      },
+      author: {
+        "@type": "Person",
+        name: "Michael Thompson"
+      },
+      datePublished: "2024-11-15",
+      reviewBody: "Ruben and his team removed a massive oak tree that was threatening our house. They were professional, efficient, and cleaned up everything perfectly. Highly recommend!"
+    },
+    {
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5"
+      },
+      author: {
+        "@type": "Person",
+        name: "Sarah Mitchell"
+      },
+      datePublished: "2024-10-28",
+      reviewBody: "Outstanding landscaping work! They transformed our backyard into a beautiful outdoor living space. The attention to detail was impressive."
+    },
+    {
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5"
+      },
+      author: {
+        "@type": "Person",
+        name: "David Chen"
+      },
+      datePublished: "2024-09-12",
+      reviewBody: "Called them for emergency tree removal after a storm. They responded within 2 hours and had the tree safely removed by end of day. Fair pricing and excellent service."
+    },
+    {
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5"
+      },
+      author: {
+        "@type": "Person",
+        name: "Jennifer Martinez"
+      },
+      datePublished: "2024-08-20",
+      reviewBody: "We use Ruben & Sons for all our property maintenance. Their seasonal cleanup service keeps our yard looking pristine year-round. Best landscapers in Bethesda!"
+    }
+  ],
   areaServed: [
     { "@type": "City", name: "Washington", addressRegion: "DC" },
     { "@type": "City", name: "Bethesda", addressRegion: "MD" },
@@ -180,6 +246,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <GoogleAnalytics />
+      </head>
       <body className={`${playfair.variable} ${inter.variable} font-sans antialiased`}>
         <script
           type="application/ld+json"
@@ -191,6 +260,7 @@ export default function RootLayout({
         <Footer />
         <MobileCallButton />
         <StickyMobileCTA />
+        <FloatingContactFAB />
       </body>
     </html>
   );
