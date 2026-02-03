@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Button, ServiceCard, TestimonialCard, BeforeAfterSlider, FAQ, GuaranteeSection } from '@/components/ui';
+import { Button, ServiceCard, TestimonialCard, BeforeAfterSlider, FAQ, GuaranteeSection, StatsBar } from '@/components/ui';
 
 // Service Icons as SVG components
 const EmergencyIcon = () => (
@@ -161,28 +161,11 @@ export default function Home() {
             </Button>
           </div>
 
-          {/* Stats - Social Proof */}
-          <div className="flex flex-wrap justify-center gap-8 sm:gap-16 animate-fade-in-up animation-delay-400">
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-white">500+</div>
-              <div className="text-sm text-white/70 uppercase tracking-wide">Projects</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-white">15+</div>
-              <div className="text-sm text-white/70 uppercase tracking-wide">Years</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-cta-green">24/7</div>
-              <div className="text-sm text-white/70 uppercase tracking-wide">Response</div>
-            </div>
-          </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
+        {/* Stats Bar - Inside Hero Fold */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <StatsBar />
         </div>
       </section>
 
