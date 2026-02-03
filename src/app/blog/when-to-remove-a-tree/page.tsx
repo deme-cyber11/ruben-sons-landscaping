@@ -33,7 +33,7 @@ export default function WhenToRemoveTreeArticle() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
-      <main className="pt-24 pb-16">
+      <main className="pt-24 pb-16 bg-gradient-sage">
         <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
           <nav className="mb-8">
@@ -47,14 +47,15 @@ export default function WhenToRemoveTreeArticle() {
           </nav>
 
           {/* Header */}
-          <header className="mb-8">
+          <header className="mb-8 bg-white rounded-xl p-6 md:p-8 shadow-md">
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-xs font-medium text-cta-green bg-cta-green/10 px-3 py-1 rounded-full">
+              <span className="badge-green px-3 py-1 rounded-full text-xs font-medium">
                 Tree Care
               </span>
               <span className="text-sm text-gray-500">8 min read</span>
               <span className="text-sm text-gray-500">February 1, 2026</span>
             </div>
+            <div className="decorative-line mb-4"></div>
             <h1 className="text-4xl font-bold text-charcoal mb-4">
               When to Remove a Tree: 7 Warning Signs Every Homeowner Should Know
             </h1>
@@ -64,7 +65,7 @@ export default function WhenToRemoveTreeArticle() {
           </header>
 
           {/* Content */}
-          <div className="prose prose-lg max-w-none">
+          <div className="prose prose-lg prose-enhanced max-w-none bg-white rounded-xl p-6 md:p-8 shadow-md">
             <p>
               As a homeowner in the DMV area, your trees are valuable assets. They provide shade, improve air quality, and can increase your property value by up to 15%. But trees don&apos;t live forever, and a compromised tree can cause thousands of dollars in damage—or worse, injure someone.
             </p>
@@ -84,9 +85,12 @@ export default function WhenToRemoveTreeArticle() {
               <li><strong>Vertical cracks</strong> running down the trunk</li>
               <li><strong>Mushrooms or fungi</strong> growing at the base</li>
             </ul>
-            <p>
-              Fungi at the base often indicate root rot, which can cause sudden failure even in trees that look healthy above ground.
-            </p>
+            <div className="callout-warning my-6">
+              <p className="font-semibold text-amber-dark mb-1">Important Warning</p>
+              <p className="text-gray-700 m-0">
+                Fungi at the base often indicate root rot, which can cause sudden failure even in trees that look healthy above ground.
+              </p>
+            </div>
 
             <h2 className="text-2xl font-bold text-charcoal mt-8 mb-4">2. The Tree Is Leaning Significantly</h2>
             <p>
@@ -98,9 +102,12 @@ export default function WhenToRemoveTreeArticle() {
               <li>Exposed roots on the opposite side of the lean</li>
               <li>The lean has increased over time</li>
             </ul>
-            <p>
-              A leaning tree with root damage can fall without warning. This is especially dangerous after storms when soil is saturated.
-            </p>
+            <div className="callout-info my-6">
+              <p className="font-semibold text-info mb-1">Safety Note</p>
+              <p className="text-gray-700 m-0">
+                A leaning tree with root damage can fall without warning. This is especially dangerous after storms when soil is saturated.
+              </p>
+            </div>
 
             <h2 className="text-2xl font-bold text-charcoal mt-8 mb-4">3. Dead Branches in the Crown</h2>
             <p>
@@ -112,9 +119,12 @@ export default function WhenToRemoveTreeArticle() {
               <li><strong>Dead branches on one side only</strong> (indicates root or trunk damage on that side)</li>
               <li><strong>Branches dying from the top down</strong> (often indicates root problems)</li>
             </ul>
-            <p>
-              Sometimes aggressive pruning can save a tree with dead branches. But if the crown is more than 50% dead, removal is usually the safest option.
-            </p>
+            <div className="callout-success my-6">
+              <p className="font-semibold text-success mb-1">Pro Tip</p>
+              <p className="text-gray-700 m-0">
+                Sometimes aggressive pruning can save a tree with dead branches. But if the crown is more than 50% dead, removal is usually the safest option.
+              </p>
+            </div>
 
             <h2 className="text-2xl font-bold text-charcoal mt-8 mb-4">4. Root Problems Are Visible</h2>
             <p>
@@ -182,7 +192,7 @@ export default function WhenToRemoveTreeArticle() {
               <li><strong>Consider stump removal</strong> to prevent regrowth and pest problems</li>
             </ol>
 
-            <div className="bg-cream p-6 rounded-xl mt-8">
+            <div className="callout-premium mt-8">
               <h3 className="text-xl font-bold text-charcoal mb-3">Need a Professional Opinion?</h3>
               <p className="text-gray-600 mb-4">
                 We offer free estimates for tree assessment and removal throughout the DMV area. Our certified arborists can evaluate your tree and recommend the safest course of action.
@@ -190,13 +200,13 @@ export default function WhenToRemoveTreeArticle() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-cta-green text-white font-semibold rounded-lg hover:bg-cta-green/90 transition-colors"
+                  className="btn-primary inline-flex items-center justify-center px-6 py-3 font-semibold rounded-lg"
                 >
                   Get Free Estimate
                 </Link>
                 <a
                   href="tel:301-844-8429"
-                  className="inline-flex items-center justify-center px-6 py-3 border-2 border-charcoal text-charcoal font-semibold rounded-lg hover:bg-charcoal hover:text-white transition-colors"
+                  className="btn-outline-green inline-flex items-center justify-center px-6 py-3 font-semibold rounded-lg"
                 >
                   Call 301-844-8429
                 </a>

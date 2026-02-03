@@ -60,7 +60,7 @@ export default function TreeRemovalCostArticle() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <main className="pt-24 pb-16">
+      <main className="pt-24 pb-16 bg-gradient-warm">
         <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
           <nav className="mb-8">
@@ -74,14 +74,15 @@ export default function TreeRemovalCostArticle() {
           </nav>
 
           {/* Header */}
-          <header className="mb-8">
+          <header className="mb-8 bg-white rounded-xl p-6 md:p-8 shadow-md">
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-xs font-medium text-cta-green bg-cta-green/10 px-3 py-1 rounded-full">
+              <span className="badge-amber px-3 py-1 rounded-full text-xs font-medium">
                 Pricing
               </span>
               <span className="text-sm text-gray-500">6 min read</span>
               <span className="text-sm text-gray-500">February 1, 2026</span>
             </div>
+            <div className="decorative-line-warm mb-4"></div>
             <h1 className="text-4xl font-bold text-charcoal mb-4">
               Tree Removal Cost in Maryland: Complete 2026 Pricing Guide
             </h1>
@@ -91,38 +92,41 @@ export default function TreeRemovalCostArticle() {
           </header>
 
           {/* Content */}
-          <div className="prose prose-lg max-w-none">
+          <div className="prose prose-lg prose-enhanced max-w-none bg-white rounded-xl p-6 md:p-8 shadow-md">
             <p>
               Tree removal is a significant investment, and prices can vary widely. As a Maryland-based tree service with over 15 years of experience, we believe in transparent pricing. Here&apos;s what you can expect to pay in 2026.
             </p>
 
             <h2 className="text-2xl font-bold text-charcoal mt-8 mb-4">Average Tree Removal Costs in Maryland</h2>
 
-            <div className="bg-cream p-6 rounded-xl my-6">
+            <div className="callout-premium my-6">
               <h3 className="text-lg font-bold text-charcoal mb-4">2026 Price Ranges by Tree Size</h3>
               <div className="space-y-3">
-                <div className="flex justify-between items-center py-2 border-b border-gray-200">
+                <div className="flex justify-between items-center py-2 border-b border-amber/20">
                   <span className="font-medium">Small Trees (under 30 ft)</span>
-                  <span className="text-cta-green font-bold">$300 - $500</span>
+                  <span className="badge-green px-3 py-1 rounded-full text-sm font-bold">$300 - $500</span>
                 </div>
-                <div className="flex justify-between items-center py-2 border-b border-gray-200">
+                <div className="flex justify-between items-center py-2 border-b border-amber/20">
                   <span className="font-medium">Medium Trees (30-60 ft)</span>
-                  <span className="text-cta-green font-bold">$500 - $1,000</span>
+                  <span className="badge-green px-3 py-1 rounded-full text-sm font-bold">$500 - $1,000</span>
                 </div>
-                <div className="flex justify-between items-center py-2 border-b border-gray-200">
+                <div className="flex justify-between items-center py-2 border-b border-amber/20">
                   <span className="font-medium">Large Trees (60-80 ft)</span>
-                  <span className="text-cta-green font-bold">$1,000 - $1,500</span>
+                  <span className="badge-amber px-3 py-1 rounded-full text-sm font-bold">$1,000 - $1,500</span>
                 </div>
                 <div className="flex justify-between items-center py-2">
                   <span className="font-medium">Very Large Trees (80+ ft)</span>
-                  <span className="text-cta-green font-bold">$1,500 - $3,000+</span>
+                  <span className="badge-earth px-3 py-1 rounded-full text-sm font-bold">$1,500 - $3,000+</span>
                 </div>
               </div>
             </div>
 
-            <p>
-              These prices typically include cutting down the tree, removing debris, and basic cleanup. Stump grinding is usually an additional $100-$400 depending on stump size.
-            </p>
+            <div className="callout-info my-6">
+              <p className="font-semibold text-info mb-1">What&apos;s Included</p>
+              <p className="text-gray-700 m-0">
+                These prices typically include cutting down the tree, removing debris, and basic cleanup. Stump grinding is usually an additional $100-$400 depending on stump size.
+              </p>
+            </div>
 
             <h2 className="text-2xl font-bold text-charcoal mt-8 mb-4">Factors That Affect Tree Removal Cost</h2>
 
@@ -217,16 +221,19 @@ export default function TreeRemovalCostArticle() {
             </ol>
 
             <h2 className="text-2xl font-bold text-charcoal mt-8 mb-4">Red Flags to Watch For</h2>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Door-to-door solicitation (especially after storms)</li>
-              <li>Requests for large upfront payments</li>
-              <li>No written estimate or contract</li>
-              <li>No proof of insurance</li>
-              <li>Using climbing spikes on trees that aren&apos;t being removed</li>
-              <li>Prices that seem too good to be true</li>
-            </ul>
+            <div className="callout-warning my-6">
+              <p className="font-semibold text-amber-dark mb-2">Warning Signs of Unreliable Contractors</p>
+              <ul className="list-disc pl-6 space-y-2 text-gray-700 m-0">
+                <li>Door-to-door solicitation (especially after storms)</li>
+                <li>Requests for large upfront payments</li>
+                <li>No written estimate or contract</li>
+                <li>No proof of insurance</li>
+                <li>Using climbing spikes on trees that aren&apos;t being removed</li>
+                <li>Prices that seem too good to be true</li>
+              </ul>
+            </div>
 
-            <div className="bg-cream p-6 rounded-xl mt-8">
+            <div className="callout-premium mt-8">
               <h3 className="text-xl font-bold text-charcoal mb-3">Get Your Free Estimate</h3>
               <p className="text-gray-600 mb-4">
                 We provide free, no-obligation estimates for tree removal throughout Montgomery County, Prince George&apos;s County, and the greater DMV area. Our quotes are detailed and transparent—no surprises.
@@ -234,13 +241,13 @@ export default function TreeRemovalCostArticle() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-cta-green text-white font-semibold rounded-lg hover:bg-cta-green/90 transition-colors"
+                  className="btn-primary inline-flex items-center justify-center px-6 py-3 font-semibold rounded-lg"
                 >
                   Request Free Quote
                 </Link>
                 <a
                   href="tel:301-844-8429"
-                  className="inline-flex items-center justify-center px-6 py-3 border-2 border-charcoal text-charcoal font-semibold rounded-lg hover:bg-charcoal hover:text-white transition-colors"
+                  className="btn-outline-green inline-flex items-center justify-center px-6 py-3 font-semibold rounded-lg"
                 >
                   Call 301-844-8429
                 </a>

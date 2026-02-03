@@ -33,7 +33,7 @@ export default function SpringLandscapingTipsArticle() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
-      <main className="pt-24 pb-16">
+      <main className="pt-24 pb-16 bg-gradient-sage">
         <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="mb-8">
             <ol className="flex items-center gap-2 text-sm text-gray-500">
@@ -45,14 +45,15 @@ export default function SpringLandscapingTipsArticle() {
             </ol>
           </nav>
 
-          <header className="mb-8">
+          <header className="mb-8 bg-white rounded-xl p-6 md:p-8 shadow-md">
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-xs font-medium text-cta-green bg-cta-green/10 px-3 py-1 rounded-full">
+              <span className="badge-teal px-3 py-1 rounded-full text-xs font-medium">
                 Landscaping
               </span>
               <span className="text-sm text-gray-500">8 min read</span>
               <span className="text-sm text-gray-500">February 2, 2026</span>
             </div>
+            <div className="decorative-line mb-4"></div>
             <h1 className="text-4xl font-bold text-charcoal mb-4">
               Spring Landscaping Tips for Maryland & Virginia: Your Complete Checklist
             </h1>
@@ -61,7 +62,7 @@ export default function SpringLandscapingTipsArticle() {
             </p>
           </header>
 
-          <div className="prose prose-lg max-w-none">
+          <div className="prose prose-lg prose-enhanced max-w-none bg-white rounded-xl p-6 md:p-8 shadow-md">
             <p>
               After a long winter, your Maryland or Virginia landscape needs some attention. The work you do in spring sets the tone for the entire growing season. This guide covers everything you need to know, timed specifically for our Mid-Atlantic climate.
             </p>
@@ -89,8 +90,11 @@ export default function SpringLandscapingTipsArticle() {
               <li>Finish pruning fruit trees before buds swell</li>
               <li>Prune roses when forsythia blooms</li>
               <li>Remove dead wood from shrubs</li>
-              <li>DO NOT prune spring-flowering shrubs yet (azaleas, lilacs, etc.)</li>
             </ul>
+            <div className="callout-warning my-4">
+              <p className="font-semibold text-amber-dark mb-1">Important Timing</p>
+              <p className="text-gray-700 m-0">DO NOT prune spring-flowering shrubs yet (azaleas, lilacs, etc.) - wait until after they bloom!</p>
+            </div>
 
             <h2 className="text-2xl font-bold text-charcoal mt-8 mb-4">Mid-Spring (April)</h2>
 
@@ -113,9 +117,12 @@ export default function SpringLandscapingTipsArticle() {
             <ul className="list-disc pl-6 space-y-2">
               <li>Remove old, decomposed mulch or mix into soil</li>
               <li>Apply 2-3 inches of fresh mulch to beds</li>
-              <li>Keep mulch 3-4 inches away from tree trunks (no volcano mulching!)</li>
               <li>Use hardwood mulch for beds, pine straw for acid-lovers</li>
             </ul>
+            <div className="callout-success my-4">
+              <p className="font-semibold text-success mb-1">Pro Tip</p>
+              <p className="text-gray-700 m-0">Keep mulch 3-4 inches away from tree trunks - no volcano mulching! This prevents rot and pest problems.</p>
+            </div>
 
             <h3 className="text-xl font-semibold text-charcoal mt-6 mb-3">Planting</h3>
             <ul className="list-disc pl-6 space-y-2">
@@ -145,22 +152,23 @@ export default function SpringLandscapingTipsArticle() {
             </ul>
 
             <h2 className="text-2xl font-bold text-charcoal mt-8 mb-4">Spring Checklist Summary</h2>
-            <div className="bg-cream p-6 rounded-xl">
-              <ul className="space-y-2">
-                <li>☐ Clean up winter debris and storm damage</li>
-                <li>☐ Test and amend soil as needed</li>
-                <li>☐ Complete dormant pruning</li>
-                <li>☐ Apply pre-emergent crabgrass control</li>
-                <li>☐ Aerate and overseed lawn</li>
-                <li>☐ Refresh mulch in beds</li>
-                <li>☐ Plant trees, shrubs, and perennials</li>
-                <li>☐ Set up irrigation</li>
-                <li>☐ Schedule tree inspection</li>
-                <li>☐ Plan summer maintenance schedule</li>
+            <div className="callout-premium">
+              <div className="decorative-line mb-4"></div>
+              <ul className="space-y-3 m-0">
+                <li className="flex items-center gap-3"><span className="badge-green px-2 py-0.5 rounded text-xs">Early</span> Clean up winter debris and storm damage</li>
+                <li className="flex items-center gap-3"><span className="badge-green px-2 py-0.5 rounded text-xs">Early</span> Test and amend soil as needed</li>
+                <li className="flex items-center gap-3"><span className="badge-green px-2 py-0.5 rounded text-xs">Early</span> Complete dormant pruning</li>
+                <li className="flex items-center gap-3"><span className="badge-amber px-2 py-0.5 rounded text-xs">Mid</span> Apply pre-emergent crabgrass control</li>
+                <li className="flex items-center gap-3"><span className="badge-amber px-2 py-0.5 rounded text-xs">Mid</span> Aerate and overseed lawn</li>
+                <li className="flex items-center gap-3"><span className="badge-amber px-2 py-0.5 rounded text-xs">Mid</span> Refresh mulch in beds</li>
+                <li className="flex items-center gap-3"><span className="badge-teal px-2 py-0.5 rounded text-xs">Late</span> Plant trees, shrubs, and perennials</li>
+                <li className="flex items-center gap-3"><span className="badge-teal px-2 py-0.5 rounded text-xs">Late</span> Set up irrigation</li>
+                <li className="flex items-center gap-3"><span className="badge-earth px-2 py-0.5 rounded text-xs">All</span> Schedule tree inspection</li>
+                <li className="flex items-center gap-3"><span className="badge-earth px-2 py-0.5 rounded text-xs">All</span> Plan summer maintenance schedule</li>
               </ul>
             </div>
 
-            <div className="bg-cream p-6 rounded-xl mt-8">
+            <div className="callout-premium mt-8">
               <h3 className="text-xl font-bold text-charcoal mb-3">Need Help With Spring Cleanup?</h3>
               <p className="text-gray-600 mb-4">
                 Our team handles spring cleanup, mulching, pruning, and planting throughout Maryland, Virginia, and DC. Get your yard ready for the season without the hassle.
@@ -168,13 +176,13 @@ export default function SpringLandscapingTipsArticle() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-cta-green text-white font-semibold rounded-lg hover:bg-cta-green/90 transition-colors"
+                  className="btn-primary inline-flex items-center justify-center px-6 py-3 font-semibold rounded-lg"
                 >
                   Schedule Spring Service
                 </Link>
                 <Link
                   href="/services/maintenance"
-                  className="inline-flex items-center justify-center px-6 py-3 border-2 border-charcoal text-charcoal font-semibold rounded-lg hover:bg-charcoal hover:text-white transition-colors"
+                  className="btn-outline-green inline-flex items-center justify-center px-6 py-3 font-semibold rounded-lg"
                 >
                   Maintenance Programs
                 </Link>

@@ -3,6 +3,7 @@ interface TestimonialCardProps {
   author: string;
   location?: string;
   rating?: number;
+  variant?: 'default' | 'warm' | 'premium';
 }
 
 export default function TestimonialCard({
@@ -10,9 +11,27 @@ export default function TestimonialCard({
   author,
   location,
   rating = 5,
+  variant = 'default',
 }: TestimonialCardProps) {
+  const cardClass = {
+    default: 'bg-white border border-gray-100 hover:shadow-lg',
+    warm: 'card-warm',
+    premium: 'card-premium',
+  }[variant];
+
+  const avatarGradient = {
+    default: 'bg-gradient-to-br from-primary-green to-cta-green',
+    warm: 'bg-gradient-to-br from-amber to-amber-dark',
+    premium: 'bg-gradient-to-br from-cta-green via-teal to-amber',
+  }[variant];
+
   return (
-    <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+    <div className={`${cardClass} rounded-xl p-6 transition-all duration-300 relative overflow-hidden`}>
+      {/* Decorative quote marks in background */}
+      <div className="absolute top-4 right-4 text-6xl text-primary-green/5 font-serif leading-none select-none">
+        &ldquo;
+      </div>
+
       {/* Google Review Style Header */}
       <div className="flex items-center gap-2 mb-4">
         <svg className="w-6 h-6" viewBox="0 0 24 24">
@@ -33,15 +52,22 @@ export default function TestimonialCard({
             d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
           />
         </svg>
-        <span className="text-sm text-gray-500">Google Review</span>
+        <span className="text-sm text-gray-500 font-medium">Google Review</span>
+        {variant === 'premium' && (
+          <span className="badge-amber text-xs px-2 py-0.5 rounded-full ml-auto">
+            Featured
+          </span>
+        )}
       </div>
 
-      {/* Star Rating */}
+      {/* Star Rating with subtle animation on hover */}
       <div className="flex gap-0.5 mb-4" aria-label={`${rating} out of 5 stars`}>
         {[...Array(5)].map((_, i) => (
           <svg
             key={i}
-            className={`w-5 h-5 ${i < rating ? 'text-yellow-400' : 'text-gray-300'}`}
+            className={`w-5 h-5 transition-transform duration-200 hover:scale-110 ${
+              i < rating ? 'text-amber-light drop-shadow-sm' : 'text-gray-300'
+            }`}
             fill="currentColor"
             viewBox="0 0 20 20"
           >
@@ -50,19 +76,28 @@ export default function TestimonialCard({
         ))}
       </div>
 
-      {/* Quote */}
-      <blockquote className="text-gray-700 leading-relaxed mb-4">
-        &ldquo;{quote}&rdquo;
+      {/* Quote with styled quotation marks */}
+      <blockquote className="text-gray-700 leading-relaxed mb-5 relative">
+        <span className="text-2xl text-amber/60 font-serif leading-none mr-1">&ldquo;</span>
+        {quote}
+        <span className="text-2xl text-amber/60 font-serif leading-none ml-1">&rdquo;</span>
       </blockquote>
 
-      {/* Author */}
-      <div className="flex items-center gap-3">
-        <div className="w-10 h-10 bg-primary-green rounded-full flex items-center justify-center text-white font-bold">
+      {/* Author section with gradient avatar */}
+      <div className="flex items-center gap-3 pt-4 border-t border-gray-100/50">
+        <div className={`w-11 h-11 ${avatarGradient} rounded-full flex items-center justify-center text-white font-bold shadow-md`}>
           {author.charAt(0).toUpperCase()}
         </div>
         <div>
           <p className="font-semibold text-charcoal">{author}</p>
-          {location && <p className="text-sm text-gray-500">{location}</p>}
+          {location && (
+            <p className="text-sm text-gray-500 flex items-center gap-1">
+              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+              </svg>
+              {location}
+            </p>
+          )}
         </div>
       </div>
     </div>

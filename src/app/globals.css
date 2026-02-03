@@ -1,14 +1,44 @@
 @import "tailwindcss";
 
 :root {
-  /* Brand Colors */
+  /* ============================================
+     BRAND COLORS - Core Identity
+     ============================================ */
   --primary-green: #2D5A27;
   --primary-green-light: #3d7a34;
+  --primary-green-dark: #1e3d1a;
   --cta-green: #4CAF50;
   --cta-green-dark: #3d9141;
+  --cta-green-light: #66BB6A;
   --charcoal: #2C2C2C;
+  --charcoal-light: #404040;
   --cream: #F5F1EB;
   --cream-dark: #EBE5DB;
+
+  /* ============================================
+     ACCENT COLORS - Visual Interest
+     ============================================ */
+  --amber: #D97706;
+  --amber-light: #F59E0B;
+  --amber-dark: #B45309;
+  --amber-50: #FFFBEB;
+  --amber-100: #FEF3C7;
+  --earth-brown: #78350F;
+  --earth-brown-light: #92400E;
+  --teal: #0D9488;
+  --teal-light: #14B8A6;
+  --teal-dark: #0F766E;
+  --teal-50: #F0FDFA;
+  --sage: #ECFDF5;
+  --sage-dark: #D1FAE5;
+
+  /* ============================================
+     SEMANTIC COLORS
+     ============================================ */
+  --success: #10B981;
+  --warning: #F59E0B;
+  --error: #EF4444;
+  --info: #0EA5E9;
 
   /* System */
   --background: #ffffff;
@@ -19,6 +49,9 @@
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --shadow-green: 0 10px 40px -10px rgba(45, 90, 39, 0.3);
+  --shadow-amber: 0 10px 40px -10px rgba(217, 119, 6, 0.3);
 }
 
 @theme inline {
@@ -26,11 +59,21 @@
   --color-foreground: var(--foreground);
   --color-primary-green: var(--primary-green);
   --color-primary-green-light: var(--primary-green-light);
+  --color-primary-green-dark: var(--primary-green-dark);
   --color-cta-green: var(--cta-green);
   --color-cta-green-dark: var(--cta-green-dark);
+  --color-cta-green-light: var(--cta-green-light);
   --color-charcoal: var(--charcoal);
+  --color-charcoal-light: var(--charcoal-light);
   --color-cream: var(--cream);
   --color-cream-dark: var(--cream-dark);
+  --color-amber: var(--amber);
+  --color-amber-light: var(--amber-light);
+  --color-amber-dark: var(--amber-dark);
+  --color-teal: var(--teal);
+  --color-teal-light: var(--teal-light);
+  --color-sage: var(--sage);
+  --color-earth-brown: var(--earth-brown);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -63,7 +106,7 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary-green);
+  background: linear-gradient(180deg, var(--primary-green) 0%, var(--cta-green) 100%);
   border-radius: 5px;
 }
 
@@ -77,9 +120,18 @@ html {
 .hero-overlay {
   background: linear-gradient(
     135deg,
-    rgba(45, 90, 39, 0.85) 0%,
-    rgba(44, 44, 44, 0.75) 50%,
-    rgba(45, 90, 39, 0.7) 100%
+    rgba(45, 90, 39, 0.9) 0%,
+    rgba(44, 44, 44, 0.8) 50%,
+    rgba(45, 90, 39, 0.85) 100%
+  );
+}
+
+.hero-overlay-warm {
+  background: linear-gradient(
+    135deg,
+    rgba(45, 90, 39, 0.9) 0%,
+    rgba(120, 53, 15, 0.7) 50%,
+    rgba(45, 90, 39, 0.85) 100%
   );
 }
 
@@ -99,6 +151,56 @@ html {
 }
 
 /* ============================================
+   BACKGROUND PATTERNS & TEXTURES
+   ============================================ */
+.bg-pattern-dots {
+  background-image: radial-gradient(circle at 1px 1px, var(--primary-green) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+.bg-pattern-dots-light {
+  background-image: radial-gradient(circle at 1px 1px, rgba(45, 90, 39, 0.1) 1px, transparent 0);
+  background-size: 30px 30px;
+}
+
+.bg-pattern-grid {
+  background-image:
+    linear-gradient(rgba(45, 90, 39, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 90, 39, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.bg-pattern-diagonal {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(45, 90, 39, 0.02) 10px,
+    rgba(45, 90, 39, 0.02) 20px
+  );
+}
+
+.bg-gradient-warm {
+  background: linear-gradient(135deg, var(--cream) 0%, var(--amber-50) 100%);
+}
+
+.bg-gradient-sage {
+  background: linear-gradient(135deg, var(--sage) 0%, var(--cream) 100%);
+}
+
+.bg-gradient-earth {
+  background: linear-gradient(180deg, var(--cream) 0%, #FEF3C7 50%, var(--cream) 100%);
+}
+
+.bg-mesh-gradient {
+  background:
+    radial-gradient(at 40% 20%, rgba(76, 175, 80, 0.1) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(217, 119, 6, 0.08) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(13, 148, 136, 0.08) 0px, transparent 50%),
+    var(--cream);
+}
+
+/* ============================================
    CARD STYLES
    ============================================ */
 .card-hover {
@@ -108,6 +210,51 @@ html {
 .card-hover:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-xl);
+}
+
+.card-premium {
+  background: linear-gradient(135deg, #ffffff 0%, var(--cream) 100%);
+  border: 1px solid rgba(45, 90, 39, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-premium:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-green);
+  border-color: var(--cta-green);
+}
+
+.card-warm {
+  background: linear-gradient(135deg, #ffffff 0%, var(--amber-50) 100%);
+  border: 1px solid rgba(217, 119, 6, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-warm:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-amber);
+  border-color: var(--amber);
+}
+
+.card-gradient-border {
+  position: relative;
+  background: white;
+  border-radius: 1rem;
+}
+
+.card-gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: calc(1rem + 2px);
+  background: linear-gradient(135deg, var(--cta-green) 0%, var(--teal) 50%, var(--amber) 100%);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-gradient-border:hover::before {
+  opacity: 1;
 }
 
 /* ============================================
@@ -125,15 +272,208 @@ html {
   top: 0;
   left: 0;
   right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--cta-green), transparent);
+  height: 2px;
+  background: linear-gradient(90deg, var(--amber), var(--cta-green), var(--teal), var(--cta-green), var(--amber));
+  background-size: 200% 100%;
+  animation: gradient-shift 8s ease infinite;
 }
 
 .stat-value {
-  background: linear-gradient(180deg, var(--cta-green) 0%, #3d9141 100%);
+  background: linear-gradient(180deg, var(--cta-green) 0%, var(--teal) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* ============================================
+   BADGE STYLES
+   ============================================ */
+.badge-green {
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.15) 0%, rgba(45, 90, 39, 0.1) 100%);
+  color: var(--primary-green);
+  border: 1px solid rgba(76, 175, 80, 0.2);
+}
+
+.badge-amber {
+  background: linear-gradient(135deg, rgba(217, 119, 6, 0.15) 0%, rgba(245, 158, 11, 0.1) 100%);
+  color: var(--amber-dark);
+  border: 1px solid rgba(217, 119, 6, 0.2);
+}
+
+.badge-teal {
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.15) 0%, rgba(20, 184, 166, 0.1) 100%);
+  color: var(--teal-dark);
+  border: 1px solid rgba(13, 148, 136, 0.2);
+}
+
+.badge-earth {
+  background: linear-gradient(135deg, rgba(120, 53, 15, 0.15) 0%, rgba(146, 64, 14, 0.1) 100%);
+  color: var(--earth-brown);
+  border: 1px solid rgba(120, 53, 15, 0.2);
+}
+
+/* ============================================
+   SECTION DIVIDERS
+   ============================================ */
+.section-divider-wave {
+  position: relative;
+}
+
+.section-divider-wave::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60'%3E%3Cpath fill='%23F5F1EB' d='M0,30 C360,60 720,0 1080,30 C1260,45 1380,45 1440,30 L1440,60 L0,60 Z'/%3E%3C/svg%3E") no-repeat bottom;
+  background-size: cover;
+}
+
+.section-divider-angle {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4rem), 0 100%);
+  padding-bottom: 4rem;
+}
+
+/* ============================================
+   ICON CONTAINERS
+   ============================================ */
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.icon-container-green {
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.15) 0%, rgba(45, 90, 39, 0.1) 100%);
+  color: var(--primary-green);
+}
+
+.icon-container-green:hover {
+  background: linear-gradient(135deg, var(--cta-green) 0%, var(--primary-green) 100%);
+  color: white;
+  transform: scale(1.05);
+}
+
+.icon-container-amber {
+  background: linear-gradient(135deg, rgba(217, 119, 6, 0.15) 0%, rgba(245, 158, 11, 0.1) 100%);
+  color: var(--amber);
+}
+
+.icon-container-amber:hover {
+  background: linear-gradient(135deg, var(--amber) 0%, var(--amber-dark) 100%);
+  color: white;
+  transform: scale(1.05);
+}
+
+.icon-container-teal {
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.15) 0%, rgba(20, 184, 166, 0.1) 100%);
+  color: var(--teal);
+}
+
+.icon-container-teal:hover {
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+  color: white;
+  transform: scale(1.05);
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+.btn-primary {
+  background: linear-gradient(135deg, var(--cta-green) 0%, var(--primary-green) 100%);
+  color: white;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-green);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, var(--amber) 0%, var(--amber-dark) 100%);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-amber);
+}
+
+.btn-outline-green {
+  border: 2px solid var(--primary-green);
+  color: var(--primary-green);
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-green:hover {
+  background: var(--primary-green);
+  color: white;
+}
+
+/* ============================================
+   CALLOUT BOXES
+   ============================================ */
+.callout-success {
+  background: linear-gradient(135deg, var(--sage) 0%, rgba(16, 185, 129, 0.1) 100%);
+  border-left: 4px solid var(--success);
+  padding: 1.5rem;
+  border-radius: 0 0.75rem 0.75rem 0;
+}
+
+.callout-warning {
+  background: linear-gradient(135deg, var(--amber-50) 0%, rgba(245, 158, 11, 0.1) 100%);
+  border-left: 4px solid var(--warning);
+  padding: 1.5rem;
+  border-radius: 0 0.75rem 0.75rem 0;
+}
+
+.callout-info {
+  background: linear-gradient(135deg, var(--teal-50) 0%, rgba(14, 165, 233, 0.1) 100%);
+  border-left: 4px solid var(--info);
+  padding: 1.5rem;
+  border-radius: 0 0.75rem 0.75rem 0;
+}
+
+.callout-premium {
+  background: linear-gradient(135deg, var(--cream) 0%, var(--amber-100) 100%);
+  border: 2px solid var(--amber);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  position: relative;
+}
+
+.callout-premium::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 20px;
+  right: 20px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--cta-green), var(--amber), var(--teal));
+  border-radius: 0 0 3px 3px;
 }
 
 /* ============================================
@@ -232,6 +572,45 @@ html {
   }
 }
 
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* ============================================
    ANIMATION UTILITIES
    ============================================ */
@@ -269,6 +648,20 @@ html {
 
 .animate-count-up {
   animation: count-up 0.8s ease-out forwards;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s ease-in-out infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 20s linear infinite;
 }
 
 /* Animation delays */
@@ -332,11 +725,38 @@ html {
   box-shadow: 0 0 25px rgba(76, 175, 80, 0.2);
 }
 
+.hover-glow-amber:hover {
+  box-shadow: 0 0 25px rgba(217, 119, 6, 0.2);
+}
+
+.hover-border-green {
+  transition: border-color 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.hover-border-green:hover {
+  border-color: var(--cta-green);
+}
+
 /* ============================================
    TEXT EFFECTS
    ============================================ */
 .text-gradient {
   background: linear-gradient(135deg, var(--cta-green) 0%, var(--primary-green) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-warm {
+  background: linear-gradient(135deg, var(--amber) 0%, var(--earth-brown) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-multi {
+  background: linear-gradient(135deg, var(--cta-green) 0%, var(--teal) 50%, var(--amber) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -348,8 +768,38 @@ html {
 .decorative-line {
   width: 60px;
   height: 4px;
-  background: linear-gradient(90deg, var(--cta-green) 0%, var(--primary-green) 100%);
+  background: linear-gradient(90deg, var(--cta-green) 0%, var(--teal) 100%);
   border-radius: 2px;
+}
+
+.decorative-line-warm {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--amber) 0%, var(--cta-green) 100%);
+  border-radius: 2px;
+}
+
+.decorative-line-long {
+  width: 120px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--cta-green), var(--teal), var(--amber));
+  border-radius: 2px;
+}
+
+.decorative-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(76, 175, 80, 0.1) 0%, transparent 70%);
+  position: absolute;
+  pointer-events: none;
+}
+
+.decorative-blob {
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(13, 148, 136, 0.1) 100%);
+  position: absolute;
+  pointer-events: none;
 }
 
 /* ============================================
@@ -369,6 +819,34 @@ html {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.glass-cream {
+  background: rgba(245, 241, 235, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(45, 90, 39, 0.1);
+}
+
+/* ============================================
+   LIST STYLES
+   ============================================ */
+.list-check li {
+  position: relative;
+  padding-left: 1.75rem;
+}
+
+.list-check li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: linear-gradient(135deg, var(--cta-green) 0%, var(--primary-green) 100%);
+  border-radius: 50%;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='white'%3E%3Cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='white'%3E%3Cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3E%3C/svg%3E");
+}
+
 /* ============================================
    FOCUS & ACCESSIBILITY
    ============================================ */
@@ -386,4 +864,43 @@ html {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* ============================================
+   PROSE ENHANCEMENTS FOR BLOG
+   ============================================ */
+.prose-enhanced h2 {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.prose-enhanced h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--cta-green) 0%, var(--teal) 100%);
+  border-radius: 2px;
+}
+
+.prose-enhanced blockquote {
+  border-left: 4px solid var(--amber);
+  background: linear-gradient(135deg, var(--amber-50) 0%, transparent 100%);
+  padding: 1.5rem;
+  border-radius: 0 0.75rem 0.75rem 0;
+  font-style: italic;
+}
+
+.prose-enhanced a {
+  color: var(--primary-green);
+  text-decoration: underline;
+  text-decoration-color: var(--cta-green);
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.prose-enhanced a:hover {
+  color: var(--cta-green);
 }

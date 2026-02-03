@@ -19,6 +19,8 @@ export default function GuaranteeSection() {
       title: '100% Satisfaction Guarantee',
       description:
         "Not happy with our work? We'll make it right or you don't pay. That's our promise to every customer, every time.",
+      iconColor: 'green',
+      badge: 'Our Promise',
     },
     {
       icon: (
@@ -39,6 +41,8 @@ export default function GuaranteeSection() {
       title: 'On-Time, Every Time',
       description:
         "We show up when we say we will. If we're late to your scheduled appointment, your consultation is free.",
+      iconColor: 'amber',
+      badge: 'Punctuality',
     },
     {
       icon: (
@@ -59,16 +63,35 @@ export default function GuaranteeSection() {
       title: 'Clean Site Guarantee',
       description:
         'Your property will be left cleaner than we found it. All debris removed, lawn raked, and driveway swept. Guaranteed.',
+      iconColor: 'teal',
+      badge: 'Cleanliness',
     },
   ];
 
+  const iconContainerClass = {
+    green: 'icon-container-green',
+    amber: 'icon-container-amber',
+    teal: 'icon-container-teal',
+  };
+
+  const badgeClass = {
+    green: 'badge-green',
+    amber: 'badge-amber',
+    teal: 'badge-teal',
+  };
+
   return (
-    <section className="section-padding bg-cream">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="section-padding bg-gradient-warm relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="decorative-circle top-0 right-0 -translate-y-1/2 translate-x-1/2 opacity-50"></div>
+      <div className="decorative-blob w-64 h-64 bottom-0 left-0 -translate-x-1/2 translate-y-1/2 opacity-30"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-primary-green/10 px-4 py-2 rounded-full mb-4">
+          {/* Badge with gradient */}
+          <div className="badge-green inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4">
             <svg
-              className="w-5 h-5 text-primary-green"
+              className="w-5 h-5"
               fill="currentColor"
               viewBox="0 0 20 20"
             >
@@ -78,13 +101,20 @@ export default function GuaranteeSection() {
                 clipRule="evenodd"
               />
             </svg>
-            <span className="text-primary-green font-semibold text-sm">
+            <span className="font-semibold text-sm">
               Our Promise to You
             </span>
           </div>
+
+          {/* Heading with gradient text */}
           <h2 className="text-3xl sm:text-4xl font-bold text-charcoal mb-4">
-            Your Peace of Mind is Guaranteed
+            Your Peace of Mind is{' '}
+            <span className="text-gradient">Guaranteed</span>
           </h2>
+
+          {/* Decorative line */}
+          <div className="decorative-line-long mx-auto mb-6"></div>
+
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             We stand behind every job with guarantees that protect you. No fine print, no exceptions.
           </p>
@@ -94,14 +124,25 @@ export default function GuaranteeSection() {
           {guarantees.map((guarantee, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow border border-gray-100"
+              className="card-premium rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group relative"
             >
-              <div className="w-16 h-16 bg-cta-green/10 rounded-2xl flex items-center justify-center mb-6 text-cta-green">
+              {/* Top accent bar */}
+              <div className="absolute top-0 left-8 right-8 h-1 bg-gradient-to-r from-cta-green via-teal to-amber rounded-b opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+              {/* Badge */}
+              <span className={`${badgeClass[guarantee.iconColor as keyof typeof badgeClass]} text-xs px-3 py-1 rounded-full absolute top-4 right-4`}>
+                {guarantee.badge}
+              </span>
+
+              {/* Icon with gradient container */}
+              <div className={`icon-container ${iconContainerClass[guarantee.iconColor as keyof typeof iconContainerClass]} w-16 h-16 mb-6 group-hover:scale-105 transition-transform duration-300`}>
                 {guarantee.icon}
               </div>
-              <h3 className="text-xl font-bold text-charcoal mb-3">
+
+              <h3 className="text-xl font-bold text-charcoal mb-3 group-hover:text-primary-green transition-colors">
                 {guarantee.title}
               </h3>
+
               <p className="text-gray-600 leading-relaxed">
                 {guarantee.description}
               </p>
@@ -109,11 +150,18 @@ export default function GuaranteeSection() {
           ))}
         </div>
 
-        {/* Trust reinforcement */}
+        {/* Trust reinforcement with enhanced styling */}
         <div className="mt-12 text-center">
-          <p className="text-gray-500 text-sm">
-            Backed by 15+ years of service and 500+ satisfied customers across the DMV
-          </p>
+          <div className="inline-flex items-center gap-3 glass-cream px-6 py-3 rounded-full">
+            <div className="flex -space-x-2">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cta-green to-primary-green flex items-center justify-center text-white text-xs font-bold border-2 border-white">R</div>
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-amber to-amber-dark flex items-center justify-center text-white text-xs font-bold border-2 border-white">S</div>
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-teal to-teal-dark flex items-center justify-center text-white text-xs font-bold border-2 border-white">L</div>
+            </div>
+            <p className="text-gray-600 text-sm font-medium">
+              Backed by <span className="text-gradient font-bold">15+ years</span> of service and <span className="text-gradient-warm font-bold">500+</span> satisfied customers across the DMV
+            </p>
+          </div>
         </div>
       </div>
     </section>
