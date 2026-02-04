@@ -54,7 +54,7 @@ export default function ServiceCard({
         </p>
 
         {/* Learn more link with arrow animation */}
-        <div className={`flex items-center ${arrowColor} font-medium opacity-0 group-hover:opacity-100 transition-all duration-300`}>
+        <div className={`flex items-center ${arrowColor} font-medium opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-300`}>
           <span className="relative">
             Learn more
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-current group-hover:w-full transition-all duration-300"></span>

@@ -85,6 +85,7 @@ export default function BeforeAfterSlider({
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 50vw"
+            loading="lazy"
           />
           <span className="absolute bottom-4 right-4 bg-cta-green text-white px-3 py-1 rounded-full text-sm font-medium">
             After
@@ -113,6 +114,7 @@ export default function BeforeAfterSlider({
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
+              loading="lazy"
             />
           </div>
           <span className="absolute bottom-4 left-4 bg-charcoal text-white px-3 py-1 rounded-full text-sm font-medium">

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
-import { Header, Footer, MobileCallButton, StickyMobileCTA } from "@/components/layout";
+import { Header, Footer, StickyMobileCTA } from "@/components/layout";
 import { SeasonalBanner, FloatingContactFAB } from "@/components/ui";
 import { GoogleAnalytics } from "@/components/analytics";
 
@@ -256,9 +256,8 @@ export default function RootLayout({
         />
         <SeasonalBanner />
         <Header />
-        <main>{children}</main>
+        <main className="pb-20 lg:pb-0">{children}</main>
         <Footer />
-        <MobileCallButton />
         <StickyMobileCTA />
         <FloatingContactFAB />
       </body>

@@ -49,12 +49,12 @@ export default function TrustBadges() {
 
   return (
     <section className="py-8 bg-cream border-y border-gray-200">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex gap-6 overflow-x-auto pb-2 scrollbar-hide md:overflow-visible md:grid md:grid-cols-5 md:gap-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex gap-4 sm:gap-6 overflow-x-auto pb-2 scrollbar-hide md:overflow-visible md:grid md:grid-cols-5 md:gap-4">
           {badges.map((badge, index) => (
             <div
               key={index}
-              className="flex-shrink-0 flex flex-col items-center text-center min-w-[140px] md:min-w-0"
+              className="flex-shrink-0 flex flex-col items-center text-center min-w-[120px] md:min-w-0"
             >
               <div className="w-14 h-14 rounded-full bg-primary-green/10 flex items-center justify-center text-primary-green mb-2">
                 {badge.icon}

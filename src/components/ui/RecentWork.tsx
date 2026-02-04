@@ -80,7 +80,7 @@ export default function RecentWork({
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8">
           {projects.map((project, index) => (
             <Link
               key={project.id}
@@ -95,7 +95,8 @@ export default function RecentWork({
                   alt={project.title}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                  loading="lazy"
                 />
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent" />
@@ -124,7 +125,7 @@ export default function RecentWork({
                 </h3>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-500">{project.completedDate}</span>
-                  <span className="inline-flex items-center gap-1 text-cta-green text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="inline-flex items-center gap-1 text-cta-green text-sm font-medium opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity">
                     View Details
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

@@ -33,7 +33,7 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
 
-  // Close mobile menu on escape key
+  // Close mobile menu on escape key and lock scroll
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -43,12 +43,25 @@ export default function Header() {
 
     if (isMobileMenuOpen) {
       document.addEventListener('keydown', handleEscape);
+      // Better scroll lock for iOS Safari
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
       document.body.style.overflow = 'hidden';
     }
 
     return () => {
       document.removeEventListener('keydown', handleEscape);
+      // Restore scroll position
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
       document.body.style.overflow = '';
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
     };
   }, [isMobileMenuOpen]);
 
@@ -154,7 +167,7 @@ export default function Header() {
           <button
             type="button"
             onClick={toggleMobileMenu}
-            className="lg:hidden p-2 rounded-lg text-charcoal hover:bg-charcoal/10 transition-colors duration-200"
+            className="lg:hidden p-3 rounded-lg text-charcoal hover:bg-charcoal/10 transition-colors duration-200"
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-menu"
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
@@ -198,7 +211,7 @@ export default function Header() {
       {/* Mobile Menu Panel */}
       <div
         id="mobile-menu"
-        className={`lg:hidden fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white z-50 shadow-2xl transform transition-transform duration-300 ease-in-out ${
+        className={`lg:hidden fixed top-0 right-0 h-full w-72 max-w-[90vw] bg-white z-50 shadow-2xl transform transition-transform duration-300 ease-in-out ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         role="dialog"
@@ -212,7 +225,7 @@ export default function Header() {
             <button
               type="button"
               onClick={closeMobileMenu}
-              className="p-2 rounded-lg text-charcoal hover:bg-charcoal/10 transition-colors"
+              className="p-3 rounded-lg text-charcoal hover:bg-charcoal/10 transition-colors"
               aria-label="Close menu"
             >
               <svg

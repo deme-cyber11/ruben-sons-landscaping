@@ -20,7 +20,7 @@ export default function FloatingContactFAB() {
 
   return (
     <div
-      className={`fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 transition-all duration-300 ${
+      className={`fixed bottom-6 right-6 z-50 hidden lg:flex flex-col items-end gap-3 transition-all duration-300 ${
         isVisible ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0 pointer-events-none'
       }`}
     >

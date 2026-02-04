@@ -148,7 +148,7 @@ export default function PricingCalculator() {
         <div className="text-center">
           <div className="bg-cta-green/10 rounded-2xl p-6 mb-6">
             <p className="text-sm text-charcoal/60 mb-2">Estimated Price Range</p>
-            <p className="text-4xl font-bold text-cta-green">{getEstimate()}</p>
+            <p className="text-2xl sm:text-4xl font-bold text-cta-green">{getEstimate()}</p>
           </div>
 
           <p className="text-sm text-charcoal/60 mb-6">

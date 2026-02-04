@@ -50,6 +50,7 @@ export default function AboutPage() {
           alt="Ruben & Sons Landscaping team"
           fill
           className="object-cover"
+          sizes="100vw"
           priority
         />
         <div className="absolute inset-0 hero-overlay" />
