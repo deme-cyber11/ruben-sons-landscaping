@@ -23,6 +23,11 @@ export default function StickyMobileCTA() {
       }`}
       style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
     >
+      {/* Urgency text */}
+      <div className="flex items-center justify-center gap-1.5 py-1.5 bg-amber-50 border-b border-amber-100">
+        <span className="w-1.5 h-1.5 bg-amber-500 rounded-full animate-pulse"></span>
+        <span className="text-amber-700 text-xs font-medium">Limited availability this week</span>
+      </div>
       <div className="flex gap-3 p-3">
         <a
           href="tel:301-844-8429"

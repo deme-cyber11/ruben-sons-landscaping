@@ -9,6 +9,9 @@ interface BeforeAfterSliderProps {
   beforeAlt?: string;
   afterAlt?: string;
   title?: string;
+  description?: string;
+  location?: string;
+  size?: 'default' | 'large';
 }
 
 export default function BeforeAfterSlider({
@@ -17,6 +20,9 @@ export default function BeforeAfterSlider({
   beforeAlt = 'Before',
   afterAlt = 'After',
   title,
+  description,
+  location,
+  size = 'default',
 }: BeforeAfterSliderProps) {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
@@ -43,6 +49,8 @@ export default function BeforeAfterSlider({
     handleMove(e.touches[0].clientX);
   };
 
+  const aspectClass = size === 'large' ? 'aspect-[16/10]' : 'aspect-[4/3]';
+
   return (
     <div className="rounded-xl overflow-hidden shadow-lg">
       {title && (
@@ -52,7 +60,7 @@ export default function BeforeAfterSlider({
       )}
       <div
         ref={containerRef}
-        className="relative aspect-[4/3] cursor-ew-resize select-none"
+        className={`relative ${aspectClass} cursor-ew-resize select-none`}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
@@ -81,6 +89,16 @@ export default function BeforeAfterSlider({
           <span className="absolute bottom-4 right-4 bg-cta-green text-white px-3 py-1 rounded-full text-sm font-medium">
             After
           </span>
+          {/* Location Badge Overlay */}
+          {location && (
+            <div className="absolute top-4 right-4 bg-charcoal/80 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-sm font-medium flex items-center gap-1.5">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              {location}
+            </div>
+          )}
         </div>
 
         {/* Before Image (Clipped) */}
@@ -114,6 +132,12 @@ export default function BeforeAfterSlider({
           </div>
         </div>
       </div>
+      {/* Description Section */}
+      {description && (
+        <div className="bg-white p-4 border-t border-gray-100">
+          <p className="text-gray-600 text-sm leading-relaxed">{description}</p>
+        </div>
+      )}
     </div>
   );
 }

@@ -85,9 +85,18 @@ export default function WinterizationPage() {
                 </svg>
               </div>
               <div className="flex-1 text-center md:text-left">
-                <h2 className="text-xl font-bold text-charcoal mb-2">Why Winter Prep Matters in the DMV</h2>
+                <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 mb-2">
+                  <h2 className="text-xl font-bold text-charcoal">Why Winter Prep Matters in the DMV</h2>
+                  <span className="inline-flex items-center gap-1.5 bg-blue-100 text-blue-700 px-2.5 py-1 rounded-full text-xs font-semibold">
+                    <span className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></span>
+                    Prep Before First Freeze
+                  </span>
+                </div>
                 <p className="text-charcoal/70">
                   Unlike regions with consistent cold, our area experiences damaging freeze-thaw cycles, periodic ice storms, and dry winter winds. Without proper preparation, your valuable plants, trees, and irrigation systems are at risk.
+                </p>
+                <p className="text-amber-700 font-medium text-sm mt-2">
+                  Limited appointments available - Schedule your winterization before slots fill up.
                 </p>
               </div>
             </div>
@@ -285,9 +294,17 @@ export default function WinterizationPage() {
             Act Now
           </span>
           <h2 className="text-3xl font-bold text-white mb-4">Prepare Before Winter Arrives</h2>
-          <p className="text-white/90 text-lg mb-8">
+          <p className="text-white/90 text-lg mb-4">
             Schedule your winterization services before the first freeze. Optimal timing: October - November.
           </p>
+          {/* Urgency badge */}
+          <div className="inline-flex items-center gap-2 bg-amber-500/30 backdrop-blur-sm px-4 py-2 rounded-full mb-8">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-300 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
+            </span>
+            <span className="text-amber-100 text-sm font-medium">Limited appointments - First freeze approaching</span>
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"

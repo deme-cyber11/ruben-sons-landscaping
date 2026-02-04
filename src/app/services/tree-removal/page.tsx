@@ -78,8 +78,14 @@ export default function TreeRemovalPage() {
                 </svg>
               </div>
               <div>
-                <h3 className="font-bold text-charcoal">Storm Damage? We are Available 24/7</h3>
-                <p className="text-charcoal/70">Emergency crews ready to respond immediately to hazardous situations.</p>
+                <div className="flex items-center gap-2 mb-1">
+                  <h3 className="font-bold text-charcoal">Storm Damage? We are Available 24/7</h3>
+                  <span className="inline-flex items-center gap-1 bg-red-100 text-red-700 px-2 py-0.5 rounded-full text-xs font-semibold">
+                    <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse"></span>
+                    Storm Season
+                  </span>
+                </div>
+                <p className="text-charcoal/70">Emergency crews ready to respond immediately. Book emergency slots now before the next storm hits.</p>
               </div>
             </div>
             <a

@@ -12,3 +12,4 @@ export { default as TrustBadges } from './TrustBadges';
 export { default as PricingCalculator } from './PricingCalculator';
 export { CityPageTemplate } from './CityPageTemplate';
 export { BlogCard } from './BlogCard';
+export { default as AvailabilityBadge } from './AvailabilityBadge';

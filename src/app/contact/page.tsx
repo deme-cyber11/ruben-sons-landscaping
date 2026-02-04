@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { QuoteForm } from '@/components/ui'
+import { QuoteForm, AvailabilityBadge } from '@/components/ui'
 
 export const metadata: Metadata = {
   title: 'Contact Us | Ruben & Sons Landscaping',
@@ -34,7 +34,7 @@ export default function ContactPage() {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Form */}
             <div className="card-premium rounded-2xl p-8 animate-slide-in-left">
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center gap-3 mb-4">
                 <div className="icon-container icon-container-green w-10 h-10">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -42,6 +42,18 @@ export default function ContactPage() {
                 </div>
                 <h2 className="text-2xl font-bold text-charcoal">Request a Quote</h2>
               </div>
+
+              {/* Urgency messaging */}
+              <div className="flex flex-wrap items-center gap-4 mb-6">
+                <AvailabilityBadge variant="inline" />
+                <span className="inline-flex items-center gap-1.5 text-primary-green text-sm font-medium">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  Quote within 24 hours
+                </span>
+              </div>
+
               <div className="decorative-line mb-6" />
               <QuoteForm />
             </div>
