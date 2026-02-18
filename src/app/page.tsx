@@ -126,7 +126,7 @@ export default function Home() {
           ============================================ */}
       <section
         className="relative min-h-[70vh] lg:min-h-[75vh] flex flex-col bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url(/ruben-sons-landscaping/hero-background.webp)' }}
+        style={{ backgroundImage: 'url(/ruben-sons-landscaping/images/backgrounds/hero-main-landscaping.webp)' }}
       >
         {/* Overlay */}
         <div className="absolute inset-0 hero-overlay z-0" />
@@ -405,8 +405,8 @@ export default function Home() {
             <div className="lg:row-span-2 rounded-2xl overflow-hidden shadow-2xl group">
               <div className="relative">
                 <BeforeAfterSlider
-                  beforeImage="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  afterImage="https://images.unsplash.com/photo-1558904541-efa843a96f01?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  beforeImage="/images/before-after/overgrown-yard-before.webp"
+                  afterImage="/images/before-after/overgrown-yard-after.webp"
                   beforeAlt="Overgrown backyard before landscaping"
                   afterAlt="Beautiful landscaped backyard"
                 />
@@ -426,8 +426,8 @@ export default function Home() {
             {/* Supporting Projects */}
             <div className="rounded-2xl overflow-hidden shadow-xl bg-white">
               <BeforeAfterSlider
-                beforeImage="https://images.unsplash.com/photo-1598902108854-10e335adac99?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                afterImage="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                beforeImage="/images/before-after/storm-damage-before.webp"
+                afterImage="/images/before-after/storm-damage-after.webp"
                 beforeAlt="Yard with hazardous tree"
                 afterAlt="Clean yard after tree removal"
               />
@@ -439,8 +439,8 @@ export default function Home() {
 
             <div className="rounded-2xl overflow-hidden shadow-xl bg-white">
               <BeforeAfterSlider
-                beforeImage="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                afterImage="https://images.unsplash.com/photo-1560749003-f4b1e17e2dff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                beforeImage="/images/before-after/bare-yard-before.webp"
+                afterImage="/images/before-after/bare-yard-after.webp"
                 beforeAlt="Overgrown land before clearing"
                 afterAlt="Cleared land ready for development"
               />
@@ -569,8 +569,8 @@ export default function Home() {
             {/* Map Placeholder */}
             <div className="relative h-80 lg:h-96 bg-gray-100 rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                alt="Map of DMV service area"
+                src="/images/locations/washington-dc-featured.webp"
+                alt="Professional landscaping in Washington DC area"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
