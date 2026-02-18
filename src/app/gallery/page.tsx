@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { BeforeAfterSlider } from '@/components/ui'
+import { assetPath } from '@/lib/config'
 
 const projects = [
   {
@@ -12,8 +13,8 @@ const projects = [
     badge: 'badge-green',
     description: 'Multiple fallen trees and debris removed after severe thunderstorm.',
     timeline: '2 days',
-    before: '/images/before-after/storm-damage-before.webp',
-    after: '/images/before-after/storm-damage-after.webp',
+    before: assetPath('/images/before-after/storm-damage-before.webp'),
+    after: assetPath('/images/before-after/storm-damage-after.webp'),
     featured: true,
   },
   {
@@ -23,8 +24,8 @@ const projects = [
     badge: 'badge-teal',
     description: 'Complete backyard redesign - overgrown yard transformed into manicured lawn.',
     timeline: '2 weeks',
-    before: '/images/before-after/overgrown-yard-before.webp',
-    after: '/images/before-after/overgrown-yard-after.webp',
+    before: assetPath('/images/before-after/overgrown-yard-before.webp'),
+    after: assetPath('/images/before-after/overgrown-yard-after.webp'),
     featured: false,
   },
   {
@@ -34,8 +35,8 @@ const projects = [
     badge: 'badge-amber',
     description: 'Bare lot transformed with complete landscape installation.',
     timeline: '1 week',
-    before: '/images/before-after/bare-yard-before.webp',
-    after: '/images/before-after/bare-yard-after.webp',
+    before: assetPath('/images/before-after/bare-yard-before.webp'),
+    after: assetPath('/images/before-after/bare-yard-after.webp'),
     featured: false,
   },
   {
@@ -45,8 +46,8 @@ const projects = [
     badge: 'badge-teal',
     description: 'Professional front yard landscaping with ornamental trees and garden beds.',
     timeline: '1 week',
-    before: '/images/before-after/overgrown-yard-before.webp',
-    after: '/images/gallery/front-yard-bethesda.webp',
+    before: assetPath('/images/before-after/overgrown-yard-before.webp'),
+    after: assetPath('/images/gallery/front-yard-bethesda.webp'),
     featured: false,
   },
   {
@@ -56,8 +57,8 @@ const projects = [
     badge: 'badge-teal',
     description: 'Custom garden design with native plants and ornamental grasses.',
     timeline: '4 days',
-    before: '/images/before-after/bare-yard-before.webp',
-    after: '/images/gallery/garden-design-silver-spring.webp',
+    before: assetPath('/images/before-after/bare-yard-before.webp'),
+    after: assetPath('/images/gallery/garden-design-silver-spring.webp'),
     featured: false,
   },
   {
@@ -67,8 +68,8 @@ const projects = [
     badge: 'badge-teal',
     description: 'Luxury outdoor living area with fire pit, patio, and professional landscaping.',
     timeline: '2 weeks',
-    before: '/images/before-after/overgrown-yard-before.webp',
-    after: '/images/gallery/outdoor-living-mclean.webp',
+    before: assetPath('/images/before-after/overgrown-yard-before.webp'),
+    after: assetPath('/images/gallery/outdoor-living-mclean.webp'),
     featured: false,
   },
   {
@@ -78,8 +79,8 @@ const projects = [
     badge: 'badge-teal',
     description: 'Complete lawn restoration with professional maintenance program.',
     timeline: '3 days',
-    before: '/images/before-after/overgrown-yard-before.webp',
-    after: '/images/gallery/lawn-care-rockville.webp',
+    before: assetPath('/images/before-after/overgrown-yard-before.webp'),
+    after: assetPath('/images/gallery/lawn-care-rockville.webp'),
     featured: false,
   },
   {
@@ -89,8 +90,8 @@ const projects = [
     badge: 'badge-teal',
     description: 'New sod, ornamental trees, and professional garden bed installation.',
     timeline: '1 week',
-    before: '/images/before-after/bare-yard-before.webp',
-    after: '/images/gallery/landscape-install-fairfax.webp',
+    before: assetPath('/images/before-after/bare-yard-before.webp'),
+    after: assetPath('/images/gallery/landscape-install-fairfax.webp'),
     featured: false,
   },
   {
@@ -100,8 +101,8 @@ const projects = [
     badge: 'badge-amber',
     description: 'Professional lot clearing and site preparation for new construction.',
     timeline: '5 days',
-    before: '/images/services/land-clearing-equipment.webp',
-    after: '/images/services/site-prep-complete.webp',
+    before: assetPath('/images/services/land-clearing-equipment.webp'),
+    after: assetPath('/images/services/site-prep-complete.webp'),
     featured: false,
   },
 ]

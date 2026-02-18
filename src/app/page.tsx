@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Button, ServiceCard, BeforeAfterSlider, FAQ, GuaranteeSection, StatsBar, AvailabilityBadge } from '@/components/ui';
 import TrustBadges from '@/components/ui/TrustBadges';
 import PricingCalculator from '@/components/ui/PricingCalculator';
+import { assetPath } from '@/lib/config';
 
 // Service Icons as SVG components
 const EmergencyIcon = () => (
@@ -126,7 +127,7 @@ export default function Home() {
           ============================================ */}
       <section
         className="relative min-h-[70vh] lg:min-h-[75vh] flex flex-col bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url(/ruben-sons-landscaping/images/backgrounds/hero-main-landscaping.webp)' }}
+        style={{ backgroundImage: `url(${assetPath('/images/backgrounds/hero-main-landscaping.webp')})` }}
       >
         {/* Overlay */}
         <div className="absolute inset-0 hero-overlay z-0" />
@@ -405,8 +406,8 @@ export default function Home() {
             <div className="lg:row-span-2 rounded-2xl overflow-hidden shadow-2xl group">
               <div className="relative">
                 <BeforeAfterSlider
-                  beforeImage="/images/before-after/overgrown-yard-before.webp"
-                  afterImage="/images/before-after/overgrown-yard-after.webp"
+                  beforeImage={assetPath('/images/before-after/overgrown-yard-before.webp')}
+                  afterImage={assetPath('/images/before-after/overgrown-yard-after.webp')}
                   beforeAlt="Overgrown backyard before landscaping"
                   afterAlt="Beautiful landscaped backyard"
                 />
@@ -426,8 +427,8 @@ export default function Home() {
             {/* Supporting Projects */}
             <div className="rounded-2xl overflow-hidden shadow-xl bg-white">
               <BeforeAfterSlider
-                beforeImage="/images/before-after/storm-damage-before.webp"
-                afterImage="/images/before-after/storm-damage-after.webp"
+                beforeImage={assetPath('/images/before-after/storm-damage-before.webp')}
+                afterImage={assetPath('/images/before-after/storm-damage-after.webp')}
                 beforeAlt="Yard with hazardous tree"
                 afterAlt="Clean yard after tree removal"
               />
@@ -439,8 +440,8 @@ export default function Home() {
 
             <div className="rounded-2xl overflow-hidden shadow-xl bg-white">
               <BeforeAfterSlider
-                beforeImage="/images/before-after/bare-yard-before.webp"
-                afterImage="/images/before-after/bare-yard-after.webp"
+                beforeImage={assetPath('/images/before-after/bare-yard-before.webp')}
+                afterImage={assetPath('/images/before-after/bare-yard-after.webp')}
                 beforeAlt="Overgrown land before clearing"
                 afterAlt="Cleared land ready for development"
               />
@@ -569,7 +570,7 @@ export default function Home() {
             {/* Map Placeholder */}
             <div className="relative h-80 lg:h-96 bg-gray-100 rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/images/locations/washington-dc-featured.webp"
+                src={assetPath('/images/locations/washington-dc-featured.webp')}
                 alt="Professional landscaping in Washington DC area"
                 fill
                 className="object-cover"
